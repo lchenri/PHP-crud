@@ -1,8 +1,13 @@
 <?php
-include_once "config/conexao.php";
+require_once "config/Conexao.php";
+require_once "model/Login.php";
 
-try {
-    $consulta = $conectar->query("SELECT * FROM login");
+
+use Model\Login;
+
+try{
+    $loginModel = new Login();
+    $dados = $loginModel->getAll();
 
     echo '<a href="view/formCadastro.php">Novo cadastro</a><br><br>
           <h1>Listagem de usuários</h1>';
@@ -14,24 +19,22 @@ try {
             <td>Ações</td>
           </tr>';
 
-    // Percorre BD e retorna os resultados
-    while($row = $consulta->fetch(PDO::FETCH_ASSOC)){
+    foreach($dados as $row){
         echo "
           <tr>
-            <td>$row[nome]</td>
-            <td>$row[login]</td>
-            <td><a href='view/formEditar.php?id=$row[id]'>Editar</a> - <a href='controller/deletar.php?idsssw=$row[id]'>Excluir</a></td>
+            <td>" . htmlspecialchars($row['nome']) . "</td>
+            <td>" . htmlspecialchars($row['login']) . "</td>
+            <td>
+              <a href='../view/formEditar.php?id=" . $row['id'] . "'>Editar</a> - <a href='../controller/Deletar.php?id=" . $row['id'] . "'>Excluir</a>
+            </td>
           </tr>
         ";
     }
 
     echo '</table>';
-
-    echo $consulta->rowCount() . " total de registros";
-
-
-}catch (PDOException $e ){
-    echo "Erro ao consultar" . $e->getMessage();
+    echo count($dados) . " total de registros";
+}catch (pdoException $e){
+    echo "Erro ao consultar: " . $e->getMessage();
 }
 
 ?>
