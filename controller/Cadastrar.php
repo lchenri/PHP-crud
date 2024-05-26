@@ -15,5 +15,5 @@ try {
 
     header('Location: ../index.php');
 }catch (PDOException $e){
-    echo 'Erro no cadastro: ' . $e->getMessage();
+    echo 'Erro no cadastro : ' . $e->getMessage();
 }
