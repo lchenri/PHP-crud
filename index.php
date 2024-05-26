@@ -20,7 +20,7 @@ try {
           <tr>
             <td>$row[nome]</td>
             <td>$row[login]</td>
-            <td><a href='view/formEditar.php?id=$row[id]'>Editar</a> - <a href='controller/deletar.php?idsssw=$row[id]'>Excluir</a></td>
+            <td><a href='view/formEditar.php?id=$row[id]'>Editar</a> - <a href='controller/deletar.php?id=$row[id]'>Excluir</a></td>
           </tr>
         ";
     }

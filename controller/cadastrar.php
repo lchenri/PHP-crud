@@ -6,12 +6,12 @@ try {
     $login = filter_var($_POST['login']);
 
     //prepara
-    $update = $conectar->prepare("INSERT INTO login (nome, login) VALUES (:nome, :login)");
+    $create = $conectar->prepare("INSERT INTO login (nome, login) VALUES (:nome, :login)");
 
     //filtra e evita sqlInjection
-    $update->bindParam(':nome', $nome);
-    $update->bindParam(':login', $login);
-    $update->execute();
+    $create->bindParam(':nome', $nome);
+    $create->bindParam(':login', $login);
+    $create->execute();
 
     header("Location: ../index.php");
 
