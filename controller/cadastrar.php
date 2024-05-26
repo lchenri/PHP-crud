@@ -1,5 +1,5 @@
 <?php
-include_once "../pdo/conexao.php";
+include_once "../config/conexao.php";
 
 try {
     $nome = filter_var($_POST['nome']);

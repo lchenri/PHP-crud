@@ -1,5 +1,5 @@
 <?php
-include_once "pdo/conexao.php";
+include_once "config/conexao.php";
 
 try {
     $consulta = $conectar->query("SELECT * FROM login");

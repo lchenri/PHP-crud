@@ -1,5 +1,5 @@
 <?php
-include_once "../pdo/conexao.php";
+include_once "../config/conexao.php";
 
 try {
     $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
