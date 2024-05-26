@@ -32,7 +32,7 @@ try{
     }
 
     echo '</table>';
-    echo count($dados) . " total de registros";
+    echo  "Total de registros: " . count($dados);
 }catch (pdoException $e){
     echo "Erro ao consultar: " . $e->getMessage();
 }
